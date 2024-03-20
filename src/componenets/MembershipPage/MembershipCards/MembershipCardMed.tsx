@@ -58,15 +58,15 @@ const MembershipCardMed = ({ item: { id, label, data, value } }: Props) => {
           </Text>
         </HStack>
         <HStack paddingTop={1}>
-          <Box
+          {/* <Box
             borderRadius={10}
             padding={1}
             bg={"black"}
             width={300}
             height={"22px"}
-          >
-            <Image src={bar()} borderRadius={5} width={250} />
-          </Box>
+          > */}
+          <Image src={bar()} borderRadius={5} width={250} />
+          {/* </Box> */}
         </HStack>
       </CardBody>
     </Card>
