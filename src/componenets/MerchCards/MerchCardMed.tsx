@@ -22,7 +22,7 @@ const MerchCardMed = ({ item }: Props) => {
               Total: {item.data}
             </Text>
             <Text fontWeight="bold" color="green">
-              "Target: " + item.value
+              Target: {item.value}
             </Text>
           </HStack>
         </>
