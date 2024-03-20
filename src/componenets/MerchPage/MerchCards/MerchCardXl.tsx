@@ -1,6 +1,6 @@
 import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
 import { Merch } from "../MerchPage";
-import bar_chart from "../../assets/bar_chart.png";
+import bar_chart from "../../../assets/bar_chart.png";
 
 interface Props {
   item: Merch;

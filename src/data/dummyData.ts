@@ -1,4 +1,4 @@
-import { Merch } from "../componenets/MerchPage";
+import { Merch } from "../componenets/MerchPage/MerchPage";
 
 export default [
     {

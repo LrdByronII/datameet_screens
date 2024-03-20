@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Merch } from '../componenets/MerchPage';
+import { Merch } from '../componenets/MerchPage/MerchPage';
 
 const useDMStats = () => {
     const [data, setData] = useState<Merch[]>([])

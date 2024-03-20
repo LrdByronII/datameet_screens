@@ -1,6 +1,6 @@
 import "./App.css";
 import { Box, Grid, GridItem } from "@chakra-ui/react";
-import MerchPage from "./componenets/MerchPage";
+import MerchPage from "./componenets/MerchPage/MerchPage";
 
 function App() {
   return (
