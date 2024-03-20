@@ -1,12 +1,4 @@
-import {
-  // Box,
-  Card,
-  CardBody,
-  HStack,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Card, CardBody, HStack, Heading, Image, Text } from "@chakra-ui/react";
 import { Membership } from "../MembershipPage";
 import squares from "../../../assets/squares.png";
 import bar1 from "../../../assets/bar1.png";
@@ -19,11 +11,6 @@ interface Props {
 }
 
 const MembershipCardMed = ({ item: { id, label, data, value } }: Props) => {
-  // const color = () => {
-  //   return Number(item.value.substring(0, 3).replace("%", "")) < 100
-  //     ? "#df4036"
-  //     : "green";
-  // };
   const bar = () => {
     const bar =
       id === 2
@@ -58,15 +45,7 @@ const MembershipCardMed = ({ item: { id, label, data, value } }: Props) => {
           </Text>
         </HStack>
         <HStack paddingTop={1}>
-          {/* <Box
-            borderRadius={10}
-            padding={1}
-            bg={"black"}
-            width={300}
-            height={"22px"}
-          > */}
           <Image src={bar()} borderRadius={5} width={250} />
-          {/* </Box> */}
         </HStack>
       </CardBody>
     </Card>

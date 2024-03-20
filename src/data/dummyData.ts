@@ -1,5 +1,6 @@
 import { Membership } from "../componenets/MembershipPage/MembershipPage";
 import { Merch } from "../componenets/MerchPage/MerchPage";
+import { Network } from "../componenets/NetworkPage/NetworkPage";
 
 export const membershipData = [
     {
@@ -141,3 +142,41 @@ export const membershipData = [
       size: "large",
     },
   ] as Merch[]
+
+  export const networkData = [
+    {
+      id: 1,
+      label: "Network Accounts",
+      data: "925630.758",
+      value: "2650029",
+      size: "xl",
+    },
+    {
+      id: 2,
+      label: "Total Customers",
+      data: "600000",
+      value: "-45%",
+      size: "medium",
+    },
+    {
+      id: 3,
+      label: "Total Accounts",
+      data: "1400000",
+      value: "+45%",
+      size: "medium",
+    },
+    {
+      id: 4,
+      label: "Transactions (last 7 days)",
+      data: "400000",
+      value: "+45%",
+      size: "medium",
+    },
+    {
+      id: 5,
+      label: "Revenue (last 7 days)",
+      data: "200000",
+      value: "-45%",
+      size: "medium",
+    },
+  ] as Network[]
