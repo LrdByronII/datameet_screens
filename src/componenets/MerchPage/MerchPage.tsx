@@ -1,13 +1,13 @@
 import { Box, HStack } from "@chakra-ui/react";
 import MerchGrid from "./MerchGrid";
 import { useState } from "react";
-import data from "../../data/dummyData";
+import { merchData } from "../../data/dummyData";
 import MerchGridSkeletons from "./MerchGridSkeletons";
 
 export interface Merch {
   id: number;
   label: string;
-  data: number;
+  data: string | number;
   value: string | number;
   size: "small" | "medium" | "large" | "xl";
 }
@@ -17,16 +17,34 @@ const MerchPage = () => {
 
   const groups: Merch[][] = [[]];
   let count = 0;
-  for (let i = 0; i < data.length; i++) {
-    if (i !== 0 && data[i].size === data[i - 1].size) {
-      groups[count].push(data[i]);
+  for (let i = 0; i < merchData.length; i++) {
+    if (i !== 0 && merchData[i].size === merchData[i - 1].size) {
+      groups[count].push(merchData[i]);
     } else if (i === 0) {
-      groups[count].push(data[i]);
+      groups[count].push(merchData[i]);
     } else {
-      groups.push([data[i]]);
+      groups.push([merchData[i]]);
       count++;
     }
   }
+  const gridMaker = (group: Merch[], index: number) => {
+    if (index === 0) {
+      return;
+    } else if (index === 1) {
+      return (
+        <HStack key={index} gap={0}>
+          <MerchGrid merchDisplayItems={groups[index - 1]} columns={1} />
+          <MerchGrid merchDisplayItems={group} columns={2} />
+        </HStack>
+      );
+    } else {
+      return (
+        <HStack key={index}>
+          <MerchGrid merchDisplayItems={group} columns={2} />
+        </HStack>
+      );
+    }
+  };
 
   const gridMakerSkeleton = (group: Merch[], index: number) => {
     if (index === 0) {
@@ -45,24 +63,6 @@ const MerchPage = () => {
       return (
         <HStack key={index}>
           <MerchGridSkeletons merchDisplayItems={group} columns={2} />
-        </HStack>
-      );
-    }
-  };
-  const gridMaker = (group: Merch[], index: number) => {
-    if (index === 0) {
-      return;
-    } else if (index === 1) {
-      return (
-        <HStack key={index} gap={0}>
-          <MerchGrid merchDisplayItems={groups[index - 1]} columns={1} />
-          <MerchGrid merchDisplayItems={group} columns={2} />
-        </HStack>
-      );
-    } else {
-      return (
-        <HStack key={index}>
-          <MerchGrid merchDisplayItems={group} columns={2} />
         </HStack>
       );
     }

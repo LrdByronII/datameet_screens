@@ -1,7 +1,7 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import MerchCardContainer from "./MerchCardContainer";
 import { Merch } from "./MerchPage";
-import MerchCardSkeleton from "./MerchCardSkeleton";
+import MerchCardSkeleton from "./MerchCards/MerchCardSkeleton";
 
 interface Props {
   columns: number;
