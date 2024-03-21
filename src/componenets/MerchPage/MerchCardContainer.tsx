@@ -10,12 +10,12 @@ const MerchCardContainer = ({ children, size }: Props) => {
   return (
     <>
       {size === "small" && (
-        <Box width={372} height={116}>
+        <Box width={372} height={141}>
           {children}
         </Box>
       )}
       {size === "medium" && (
-        <Box width={373} height={251}>
+        <Box width={373} height={301}>
           {children}
         </Box>
       )}

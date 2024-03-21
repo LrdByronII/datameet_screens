@@ -6,7 +6,7 @@ interface Props {
   item: Network;
 }
 
-const NetworkCardMed = ({ item: { label, value } }: Props) => {
+const NetworkCardMed = ({ item: { label, text2 } }: Props) => {
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody padding={3}>
@@ -20,12 +20,12 @@ const NetworkCardMed = ({ item: { label, value } }: Props) => {
           <HStack paddingLeft={1} paddingTop={9}>
             <Text
               {...{
-                color: value.substring(0, 1) === "-" ? "#df4036" : "green",
+                color: text2.substring(0, 1) === "-" ? "#df4036" : "green",
               }}
               fontWeight="bold"
               fontSize={"medium"}
             >
-              {value}
+              {text2}
             </Text>
           </HStack>
         )}

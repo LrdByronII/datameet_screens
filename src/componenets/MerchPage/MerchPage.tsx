@@ -7,9 +7,11 @@ import MerchGridSkeletons from "./MerchGridSkeletons";
 export interface Merch {
   id: number;
   label: string;
-  data: string | number;
-  value: string | number;
-  size: "small" | "medium" | "large" | "xl";
+  text1: string;
+  text2: string;
+  int1: number;
+  int2: number;
+  size: string;
 }
 
 const MerchPage = () => {

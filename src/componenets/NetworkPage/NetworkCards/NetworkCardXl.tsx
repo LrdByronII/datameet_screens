@@ -14,7 +14,7 @@ interface Props {
   item: Network;
 }
 
-const NetworkCardXl = ({ item: { id, label, value, data } }: Props) => {
+const NetworkCardXl = ({ item: { id, label, text2, text1 } }: Props) => {
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody padding={8}>
@@ -28,7 +28,7 @@ const NetworkCardXl = ({ item: { id, label, value, data } }: Props) => {
           </Heading>
           {label === "Total Members" && (
             <Text color={"green"} fontWeight={"bold"} fontSize={"5xl"}>
-              {value}
+              {text2}
             </Text>
           )}
         </HStack>
@@ -36,7 +36,7 @@ const NetworkCardXl = ({ item: { id, label, value, data } }: Props) => {
           <>
             <HStack paddingBottom={3}>
               <Text color="grey" fontSize={"small"}>
-                {data}
+                {text1}
               </Text>
             </HStack>
             <Box

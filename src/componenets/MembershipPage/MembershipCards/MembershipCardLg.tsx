@@ -14,7 +14,7 @@ interface Props {
   item: Membership;
 }
 
-const MembershipCardLg = ({ item: { label, data } }: Props) => {
+const MembershipCardLg = ({ item: { label, text1 } }: Props) => {
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody>
@@ -25,9 +25,9 @@ const MembershipCardLg = ({ item: { label, data } }: Props) => {
         </HStack>
         {label === "Membership Sales" && (
           <>
-            <HStack paddingBottom={7}>
+            <HStack paddingTop={3} paddingBottom={5}>
               <Text color="grey" fontSize={"small"}>
-                {data}
+                {text1}
               </Text>
             </HStack>
             <Box

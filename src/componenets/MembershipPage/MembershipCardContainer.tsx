@@ -19,7 +19,7 @@ const MembershipCardContainer = ({
         </Box>
       )}
       {size === "medium" && (
-        <Box width={281} height={115}>
+        <Box width={281} height={120}>
           {children}
         </Box>
       )}

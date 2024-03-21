@@ -14,7 +14,7 @@ interface Props {
   item: Network;
 }
 
-const NetworkCardLg = ({ item: { label, data } }: Props) => {
+const NetworkCardLg = ({ item: { label, text1 } }: Props) => {
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody>
@@ -27,7 +27,7 @@ const NetworkCardLg = ({ item: { label, data } }: Props) => {
           <>
             <HStack paddingBottom={7}>
               <Text color="grey" fontSize={"small"}>
-                {data}
+                {text1}
               </Text>
             </HStack>
             <Box

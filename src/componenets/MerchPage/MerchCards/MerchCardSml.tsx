@@ -5,27 +5,27 @@ interface Props {
   item: Merch;
 }
 
-const MerchCardSml = ({ item }: Props) => {
+const MerchCardSml = ({ item: { label, text1, text2 } }: Props) => {
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
-      <CardBody justifyContent={"space-between"}>
+      <CardBody padding={4} justifyContent={"space-between"}>
         <HStack>
-          <Heading fontWeight="bold" color="#161616" fontSize={item.size}>
-            {item.label}
+          <Heading fontWeight="bold" color="#161616" fontSize={"small"}>
+            {label}
           </Heading>
         </HStack>
         <>
-          <HStack paddingTop={2}>
-            <Text fontWeight="bold" color="#000000">
-              Total: {item.data}
+          <HStack paddingTop={3}>
+            <Text fontSize={"xx-large"} fontWeight="bold" color="#000000">
+              {text1}
             </Text>
           </HStack>
-          <HStack paddingTop={1}>
+          <HStack paddingTop={2}>
             <Text
               fontWeight="bold"
-              color={item.value === "-45%" ? "#df4036" : "green"}
+              color={text2 === "-45%" ? "#df4036" : "green"}
             >
-              {item.value !== "-45%" ? "Target: " + item.value : item.value}
+              {text2}
             </Text>
           </HStack>
         </>

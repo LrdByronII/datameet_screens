@@ -4,12 +4,31 @@ import { membershipData } from "../../data/dummyData";
 import MembershipGridSkeletons from "./MembershipGridSkeletons";
 import MembershipGrid from "./MembershipGrid";
 
+interface BarChart {
+  month: string;
+  "2024 Sales": number;
+  "2023 Sales": number;
+}
+
+interface LineChart {
+  date: string;
+  "2024 Sales": number;
+  "2023 Sales": number;
+}
+
+export interface ChartData {
+  barChart: BarChart[];
+  lineChart: LineChart[];
+}
+
 export interface Membership {
   id: number;
   label: string;
-  data: string;
-  value: string;
-  size: "small" | "medium" | "large" | "xl";
+  text1: string;
+  text2: string;
+  int1: number;
+  int2: number;
+  size: string;
 }
 
 const MembershipPage = () => {

@@ -7,9 +7,11 @@ import NetworkGrid from "./NetworkGrid";
 export interface Network {
   id: number;
   label: string;
-  data: string;
-  value: string;
-  size: "small" | "medium" | "large" | "xl";
+  text1: string;
+  text2: string;
+  int1: number;
+  int2: number;
+  size: string;
 }
 
 const NetworkPage = () => {

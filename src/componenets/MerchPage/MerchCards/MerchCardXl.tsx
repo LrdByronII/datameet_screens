@@ -6,13 +6,13 @@ interface Props {
   item: Merch;
 }
 
-const MerchCardXl = ({ item }: Props) => {
+const MerchCardXl = ({ item: { label } }: Props) => {
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody justifyContent={"space-between"}>
         <HStack paddingBottom={3}>
-          <Heading fontWeight="bold" color="#161616" fontSize={item.size}>
-            {item.label}
+          <Heading fontWeight="bold" color="#161616" fontSize={"xl"}>
+            {label}
           </Heading>
         </HStack>
         <Box

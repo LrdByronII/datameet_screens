@@ -1,29 +1,21 @@
-import { Card, CardBody, HStack, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  HStack,
+  Heading,
+  Image,
+  Progress,
+  Text,
+} from "@chakra-ui/react";
 import { Membership } from "../MembershipPage";
 import squares from "../../../assets/squares.png";
-import bar1 from "../../../assets/bar1.png";
-import bar2 from "../../../assets/bar2.png";
-import bar3 from "../../../assets/bar3.png";
-import bar4 from "../../../assets/bar4.png";
 
 interface Props {
   item: Membership;
 }
 
-const MembershipCardMed = ({ item: { id, label, data, value } }: Props) => {
-  const bar = () => {
-    const bar =
-      id === 2
-        ? bar1
-        : id === 3
-        ? bar2
-        : id === 4
-        ? bar3
-        : id === 5
-        ? bar4
-        : bar1;
-    return bar;
-  };
+const MembershipCardMed = ({ item: { label, text1, int1, int2 } }: Props) => {
+  const percent = 100 * (int1 / int2);
 
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
@@ -36,16 +28,30 @@ const MembershipCardMed = ({ item: { id, label, data, value } }: Props) => {
         </HStack>
         <HStack paddingTop={2}>
           <Text fontWeight="bold" color="#000000" fontSize={"large"}>
-            {data}
-          </Text>
-        </HStack>
-        <HStack paddingTop={0}>
-          <Text fontWeight="bold" color={"green"} fontSize={"x-small"}>
-            {value}
+            {text1}
           </Text>
         </HStack>
         <HStack paddingTop={1}>
-          <Image src={bar()} borderRadius={5} width={250} />
+          <Text fontWeight="bold" color={"green"} fontSize={"x-small"}>
+            {percent.toFixed()}% of target
+          </Text>
+        </HStack>
+        <HStack
+          paddingTop={2}
+          paddingRight={1}
+          justifyContent={"space-between"}
+        >
+          <Progress
+            borderRadius={3}
+            height={2}
+            width={"100%"}
+            colorScheme="green"
+            bg={"#d3d3d3"}
+            value={percent}
+          />
+          <Text fontSize={"x-small"} color={"grey"}>
+            {int2}
+          </Text>
         </HStack>
       </CardBody>
     </Card>
