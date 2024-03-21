@@ -127,20 +127,6 @@ export const membershipData = [
         "Nov Budget: soooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
       size: "xl",
     },
-    {
-      id: 7,
-      label: "Inventory",
-      data: 5.98734,
-      value: "Secondary Text",
-      size: "large",
-    },
-    {
-      id: 8,
-      label: "Comparison Sales",
-      data: 270000,
-      value: "Previous years performance",
-      size: "large",
-    },
   ] as Merch[]
 
   export const networkData = [

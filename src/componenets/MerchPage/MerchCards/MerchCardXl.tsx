@@ -1,4 +1,4 @@
-import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
+import { Box, Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
 import { Merch } from "../MerchPage";
 import bar_chart from "../../../assets/bar_chart.png";
 
@@ -10,12 +10,20 @@ const MerchCardXl = ({ item }: Props) => {
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody justifyContent={"space-between"}>
-        <HStack>
+        <HStack paddingBottom={3}>
           <Heading fontWeight="bold" color="#161616" fontSize={item.size}>
             {item.label}
           </Heading>
         </HStack>
-        <Image src={bar_chart} width={800} align="center" />
+        <Box
+          borderRadius={5}
+          padding={2}
+          bg={"green"}
+          width={1115}
+          height={204}
+        >
+          <Image src={bar_chart} borderRadius={3} width={1099} align="center" />
+        </Box>
       </CardBody>
     </Card>
   );
