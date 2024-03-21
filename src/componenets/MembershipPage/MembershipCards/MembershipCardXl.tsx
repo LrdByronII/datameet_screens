@@ -46,7 +46,7 @@ const MembershipCardXl = ({ item: { id, label, text1 } }: Props) => {
               width={1110}
               height={373}
             >
-              <Image borderRadius={5} src={line} width={1100} />
+              <Image borderRadius={3} src={line} width={1100} />
             </Box>
           </>
         )}

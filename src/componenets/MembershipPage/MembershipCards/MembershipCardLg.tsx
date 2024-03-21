@@ -37,7 +37,7 @@ const MembershipCardLg = ({ item: { label, text1 } }: Props) => {
               width={965}
               height={258}
             >
-              <Image width={955} src={bar} />
+              <Image borderRadius={3} width={955} src={bar} />
             </Box>
           </>
         )}
