@@ -42,7 +42,7 @@ const MembershipCardMed = ({ item: { label, text1, int1, int2 } }: Props) => {
           justifyContent={"space-between"}
         >
           <Progress
-            borderRadius={3}
+            borderRadius={5}
             height={2}
             width={"100%"}
             colorScheme="green"
