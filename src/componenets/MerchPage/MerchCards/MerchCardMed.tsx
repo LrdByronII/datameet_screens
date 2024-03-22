@@ -1,33 +1,61 @@
-import { Card, CardBody, HStack, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  CardBody,
+  CircularProgress,
+  CircularProgressLabel,
+  HStack,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
 import { Merch } from "../MerchPage";
-import half_bar from "../../../assets/half_bar.png";
 
 interface Props {
   item: Merch;
 }
 
-const MerchCardMed = ({ item: { label, text1, text2 } }: Props) => {
+const MerchCardMed = ({ item: { label, int1, int2, text1, text2 } }: Props) => {
+  const percent = 100 * (int1 / int2);
+
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody justifyContent={"space-between"}>
-        <HStack>
+        <HStack paddingBottom={4}>
           <Heading fontWeight="bold" color="#161616" fontSize={"medium"}>
             {label}
           </Heading>
         </HStack>
-        <Image
-          paddingLeft={3}
-          paddingBottom={3}
-          src={half_bar}
-          width={"100%"}
-        />
-        <HStack justifyContent={"space-between"}>
-          <Text fontWeight="bold" color="#000000">
-            Total: {text1}
-          </Text>
-          <Text fontWeight="bold" color="green">
-            Target: {text2}
-          </Text>
+        <CircularProgress
+          value={percent}
+          color="green"
+          size={180}
+          trackColor={"grey"}
+        >
+          <CircularProgressLabel
+            color={"black"}
+            fontWeight={"bold"}
+            fontSize={"x-large"}
+          >
+            {percent.toFixed()}%
+          </CircularProgressLabel>
+        </CircularProgress>
+        <HStack paddingTop={1} justifyContent={"space-between"}>
+          <Box>
+            <Text fontWeight="bold" color="grey" fontSize={"small"}>
+              Total:
+            </Text>
+            <Text fontWeight="bold" color="#000000" fontSize={"medium"}>
+              {text1}
+            </Text>
+          </Box>
+          <Box>
+            <Text fontWeight="bold" color="grey" fontSize={"small"}>
+              Target:
+            </Text>
+            <Text fontWeight="bold" color="#000000" fontSize={"medium"}>
+              {text2}
+            </Text>
+          </Box>
         </HStack>
       </CardBody>
     </Card>

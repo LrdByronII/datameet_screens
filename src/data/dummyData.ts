@@ -111,8 +111,8 @@ export const membershipData = [
       label: "Total Merchandise Sales",
       text1: "925,630.76",
       text2: "2,650,029",
-      int1: 69,
-      int2: 69,
+      int1: 925630.76,
+      int2: 2650029,
       size: "medium",
     },
     {
