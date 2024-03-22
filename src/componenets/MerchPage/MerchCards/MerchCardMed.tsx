@@ -28,7 +28,7 @@ const MerchCardMed = ({ item: { label, int1, int2, text1, text2 } }: Props) => {
         <CircularProgress
           value={percent}
           color="green"
-          size={180}
+          size={170}
           trackColor={"grey"}
         >
           <CircularProgressLabel
@@ -39,7 +39,7 @@ const MerchCardMed = ({ item: { label, int1, int2, text1, text2 } }: Props) => {
             {percent.toFixed()}%
           </CircularProgressLabel>
         </CircularProgress>
-        <HStack paddingTop={1} justifyContent={"space-between"}>
+        <HStack paddingTop={0} justifyContent={"space-between"}>
           <Box>
             <Text fontWeight="bold" color="grey" fontSize={"small"}>
               Total:
