@@ -1,20 +1,22 @@
+import { Card, CardBody, HStack, Heading, Text } from "@chakra-ui/react";
 import {
-  Box,
-  Card,
-  CardBody,
-  HStack,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
-import line from "../../../assets/member_line.png";
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { Membership } from "../MembershipPage";
+import { chartData } from "../../../data/dummyData";
 
 interface Props {
   item: Membership;
 }
 
 const MembershipCardXl = ({ item: { id, label, text1 } }: Props) => {
+  const data = chartData[0].lineChart;
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody padding={6}>
@@ -39,15 +41,15 @@ const MembershipCardXl = ({ item: { id, label, text1 } }: Props) => {
                 {text1}
               </Text>
             </HStack>
-            <Box
-              borderRadius={5}
-              padding={2}
-              bg={"green"}
-              width={1110}
-              height={373}
-            >
-              <Image borderRadius={3} src={line} width={1100} />
-            </Box>
+            <LineChart width={1050} height={380} data={data}>
+              <CartesianGrid stroke="#f5f5f5" />
+              <XAxis dataKey="date" fontSize={"small"} />
+              <YAxis fontSize={"small"} />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="2024 Sales" stroke="green" />
+              <Line type="monotone" dataKey="2023 Sales" stroke="#00ab41" />
+            </LineChart>
           </>
         )}
       </CardBody>

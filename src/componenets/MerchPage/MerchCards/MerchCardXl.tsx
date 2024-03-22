@@ -1,12 +1,24 @@
-import { Box, Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
+// import { BarChart } from "@mantine/charts";
+import { Card, CardBody, HStack, Heading } from "@chakra-ui/react";
 import { Merch } from "../MerchPage";
-import bar_chart from "../../../assets/bar_chart.png";
+import {
+  CartesianGrid,
+  Bar,
+  BarChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+  Legend,
+} from "recharts";
+import { chartData } from "../../../data/dummyData";
 
 interface Props {
   item: Merch;
 }
 
 const MerchCardXl = ({ item: { label } }: Props) => {
+  const data = chartData[0].barChart;
+
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody justifyContent={"space-between"}>
@@ -15,15 +27,17 @@ const MerchCardXl = ({ item: { label } }: Props) => {
             {label}
           </Heading>
         </HStack>
-        <Box
-          borderRadius={5}
-          padding={2}
-          bg={"green"}
-          width={1115}
-          height={204}
-        >
-          <Image src={bar_chart} borderRadius={3} width={1099} align="center" />
-        </Box>
+        <HStack>
+          <BarChart width={1100} height={300} data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="month" fontSize={"small"} />
+            <YAxis fontSize={"small"} />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="2024 Sales" fill="green" />
+            <Bar dataKey="2023 Sales" fill="#90EE90" />
+          </BarChart>
+        </HStack>
       </CardBody>
     </Card>
   );

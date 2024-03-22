@@ -25,7 +25,7 @@ const MerchCardContainer = ({ children, size }: Props) => {
         </Box>
       )}
       {size === "xl" && (
-        <Box width={1157} height={280}>
+        <Box width={1157} height={370}>
           {children}
         </Box>
       )}

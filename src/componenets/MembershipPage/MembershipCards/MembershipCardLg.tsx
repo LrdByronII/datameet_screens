@@ -1,20 +1,23 @@
+import { Card, CardBody, HStack, Heading, Text } from "@chakra-ui/react";
 import {
-  Box,
-  Card,
-  CardBody,
-  HStack,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
-import bar from "../../../assets/member_bar.png";
+  CartesianGrid,
+  Bar,
+  BarChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+  Legend,
+} from "recharts";
 import { Membership } from "../MembershipPage";
+import { chartData } from "../../../data/dummyData";
 
 interface Props {
   item: Membership;
 }
 
 const MembershipCardLg = ({ item: { label, text1 } }: Props) => {
+  const data = chartData[0].barChart;
+
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody>
@@ -30,15 +33,15 @@ const MembershipCardLg = ({ item: { label, text1 } }: Props) => {
                 {text1}
               </Text>
             </HStack>
-            <Box
-              borderRadius={5}
-              padding={2}
-              bg={"green"}
-              width={965}
-              height={258}
-            >
-              <Image borderRadius={3} width={955} src={bar} />
-            </Box>
+            <BarChart width={955} height={270} data={data}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" fontSize={"small"} />
+              <YAxis fontSize={"small"} />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="2024 Sales" fill="green" />
+              <Bar dataKey="2023 Sales" fill="#00ab41" />
+            </BarChart>
           </>
         )}
       </CardBody>

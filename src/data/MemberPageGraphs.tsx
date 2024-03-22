@@ -1,39 +1,35 @@
-import { BarChart, LineChart } from "@mantine/charts";
-import { chartData } from "./dummyData";
-import { Box } from "@chakra-ui/react";
+import { BarChart } from "@mantine/charts";
+import { Grid, Paper, Text } from "@mantine/core";
 
 const MembershipReportPage = () => {
-  const barData = chartData[0].barChart;
-  const lineData = chartData[0].lineChart;
+  const data = [
+    { month: "January", Smartphones: 1200, Laptops: 900, Tablets: 200 },
+    { month: "February", Smartphones: 1900, Laptops: 1200, Tablets: 400 },
+    { month: "March", Smartphones: 400, Laptops: 1000, Tablets: 200 },
+    { month: "April", Smartphones: 1000, Laptops: 200, Tablets: 800 },
+    { month: "May", Smartphones: 800, Laptops: 1400, Tablets: 1200 },
+    { month: "June", Smartphones: 750, Laptops: 600, Tablets: 1000 },
+  ];
 
   return (
-    <Box borderRadius={10} bg={"white"} height={500} width={1200}>
-      <BarChart
-        h={305}
-        data={barData}
-        dataKey="month"
-        gridAxis="xy"
-        series={[
-          { name: "2024 Sales", color: "dark-green" },
-          { name: "2023 Sales", color: "light-green" },
-        ]}
-      />
-      <LineChart
-        h={600}
-        data={lineData}
-        dataKey="date"
-        gridAxis="xy"
-        yAxisProps={{ domain: [0, "auto"], width: 100 }}
-        strokeWidth={3}
-        dotProps={{ r: 2, strokeWidth: 0.5, stroke: "#fff" }}
-        withLegend
-        legendProps={{ verticalAlign: "bottom", height: 50 }}
-        series={[
-          { name: "Budget", color: "dark-green" },
-          { name: "Sales", color: "light-green" },
-        ]}
-      />
-    </Box>
+    <Grid>
+      <Grid.Col span="auto">
+        <Paper p="28px" pb="35px" shadow="md">
+          <Text> Hello Mantine</Text>
+          <BarChart
+            h={300}
+            data={data}
+            dataKey="month"
+            series={[
+              { name: "Smartphones", color: "green" },
+              { name: "Laptops", color: "blue" },
+              { name: "Tablets", color: "teal" },
+            ]}
+            tickLine="y"
+          />
+        </Paper>
+      </Grid.Col>
+    </Grid>
   );
 };
 
