@@ -35,7 +35,7 @@ const MerchCardXl = ({ item: { label } }: Props) => {
             <Tooltip />
             <Legend />
             <Bar dataKey="2024 Sales" fill="green" />
-            <Bar dataKey="2023 Sales" fill="#90EE90" />
+            <Bar dataKey="2023 Sales" fill="#00c04b" />
           </BarChart>
         </HStack>
       </CardBody>

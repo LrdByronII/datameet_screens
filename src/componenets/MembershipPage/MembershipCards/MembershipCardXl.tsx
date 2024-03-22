@@ -48,7 +48,7 @@ const MembershipCardXl = ({ item: { id, label, text1 } }: Props) => {
               <Tooltip />
               <Legend />
               <Line type="monotone" dataKey="2024 Sales" stroke="green" />
-              <Line type="monotone" dataKey="2023 Sales" stroke="#00ab41" />
+              <Line type="monotone" dataKey="2023 Sales" stroke="#00c04b" />
             </LineChart>
           </>
         )}

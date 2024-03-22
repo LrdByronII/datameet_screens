@@ -40,7 +40,7 @@ const MembershipCardLg = ({ item: { label, text1 } }: Props) => {
               <Tooltip />
               <Legend />
               <Bar dataKey="2024 Sales" fill="green" />
-              <Bar dataKey="2023 Sales" fill="#00ab41" />
+              <Bar dataKey="2023 Sales" fill="#00c04b" />
             </BarChart>
           </>
         )}
