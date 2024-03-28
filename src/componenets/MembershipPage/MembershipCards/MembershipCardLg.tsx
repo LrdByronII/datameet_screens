@@ -9,7 +9,7 @@ import {
   Legend,
 } from "recharts";
 import { Membership } from "../MembershipPage";
-import { chartData } from "../../../data/dummyData";
+import { chartData } from "../../../data/dummyData.json";
 
 interface Props {
   item: Membership;

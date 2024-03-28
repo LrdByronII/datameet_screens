@@ -1,6 +1,6 @@
 import { Box, HStack } from "@chakra-ui/react";
 import { useState } from "react";
-import { networkData } from "../../data/dummyData";
+import { networkData } from "../../data/dummyData.json";
 import NetworkGridSkeletons from "./NetworkGridSkeletons";
 import NetworkGrid from "./NetworkGrid";
 

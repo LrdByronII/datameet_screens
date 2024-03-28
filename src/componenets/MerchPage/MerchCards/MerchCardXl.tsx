@@ -10,7 +10,7 @@ import {
   YAxis,
   Legend,
 } from "recharts";
-import { chartData } from "../../../data/dummyData";
+import { chartData } from "../../../data/dummyData.json";
 
 interface Props {
   item: Merch;

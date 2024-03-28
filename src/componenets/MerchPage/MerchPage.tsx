@@ -1,7 +1,7 @@
 import { Box, HStack } from "@chakra-ui/react";
 import MerchGrid from "./MerchGrid";
 import { useState } from "react";
-import { merchData } from "../../data/dummyData";
+import { merchData } from "../../data/dummyData.json";
 import MerchGridSkeletons from "./MerchGridSkeletons";
 
 export interface Merch {

@@ -1,6 +1,6 @@
 import { Box, HStack } from "@chakra-ui/react";
 import { useState } from "react";
-import { membershipData } from "../../data/dummyData";
+import { membershipData } from "../../data/dummyData.json";
 import MembershipGridSkeletons from "./MembershipGridSkeletons";
 import MembershipGrid from "./MembershipGrid";
 
