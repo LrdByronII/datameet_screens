@@ -1,13 +1,4 @@
-import {
-  Box,
-  Card,
-  CardBody,
-  HStack,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
-import bar from "../../../assets/member_bar.png";
+import { Box, Card, CardBody, HStack, Heading, Text } from "@chakra-ui/react";
 import { Network } from "../NetworkPage";
 
 interface Props {
@@ -36,9 +27,7 @@ const NetworkCardLg = ({ item: { label, text1 } }: Props) => {
               bg={"green"}
               width={965}
               height={258}
-            >
-              <Image width={955} src={bar} />
-            </Box>
+            ></Box>
           </>
         )}
       </CardBody>

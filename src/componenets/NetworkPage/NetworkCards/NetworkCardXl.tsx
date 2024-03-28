@@ -1,13 +1,4 @@
-import {
-  Box,
-  Card,
-  CardBody,
-  HStack,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
-import line from "../../../assets/member_line.png";
+import { Box, Card, CardBody, HStack, Heading, Text } from "@chakra-ui/react";
 import { Network } from "../NetworkPage";
 
 interface Props {
@@ -45,9 +36,7 @@ const NetworkCardXl = ({ item: { id, label, text2, text1 } }: Props) => {
               bg={"green"}
               width={1110}
               height={373}
-            >
-              <Image borderRadius={5} src={line} width={1100} />
-            </Box>
+            ></Box>
           </>
         )}
       </CardBody>
