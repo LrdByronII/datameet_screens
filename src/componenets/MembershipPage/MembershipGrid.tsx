@@ -7,27 +7,33 @@ import MembershipCardLg from "./MembershipCards/MembershipCardLg";
 import MembershipCardXl from "./MembershipCards/MembershipCardXl";
 
 interface Props {
-  columns: number;
+  columns: object;
   membershipDisplayItems: Membership[];
-  index?: number;
+  isLaptop: boolean;
 }
 
-const MembershipGrid = ({ columns, membershipDisplayItems }: Props) => {
+const MembershipGrid = ({
+  columns,
+  membershipDisplayItems,
+  isLaptop,
+}: Props) => {
   return (
     <SimpleGrid columns={columns}>
       {membershipDisplayItems.map((item: Membership) => (
-        <Box
-          {...{
-            paddingBottom: 3,
-            paddingRight: 3,
-          }}
-          key={item.id}
-        >
+        <Box paddingBottom={3} paddingRight={3} key={item.id}>
           <MembershipCardContainer item={item}>
-            {item.size === "small" && <MembershipCardSml item={item} />}
-            {item.size === "medium" && <MembershipCardMed item={item} />}
-            {item.size === "large" && <MembershipCardLg item={item} />}
-            {item.size === "xl" && <MembershipCardXl item={item} />}
+            {item.size === "small" && (
+              <MembershipCardSml item={item} isLaptop={isLaptop} />
+            )}
+            {item.size === "medium" && (
+              <MembershipCardMed item={item} isLaptop={isLaptop} />
+            )}
+            {item.size === "large" && (
+              <MembershipCardLg item={item} isLaptop={isLaptop} />
+            )}
+            {item.size === "xl" && (
+              <MembershipCardXl item={item} isLaptop={isLaptop} />
+            )}
           </MembershipCardContainer>
         </Box>
       ))}

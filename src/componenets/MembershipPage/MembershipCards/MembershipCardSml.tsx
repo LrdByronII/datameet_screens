@@ -1,11 +1,13 @@
 import { Card, CardBody, Heading, Text } from "@chakra-ui/react";
 import { Membership } from "../MembershipPage";
+import numberFormatter from "../../../services/numberFormatter";
 
 interface Props {
   item: Membership;
+  isLaptop: boolean;
 }
 
-const MembershipCardSml = ({ item: { label, text1, text2 } }: Props) => {
+const MembershipCardSml = ({ item: { label, total, target } }: Props) => {
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody padding={2.5} paddingLeft={1.5}>
@@ -13,14 +15,14 @@ const MembershipCardSml = ({ item: { label, text1, text2 } }: Props) => {
           {label}
         </Heading>
         <Text fontWeight="bold" color="#000000" fontSize={"xl"}>
-          {text1}
+          {numberFormatter(total)}
         </Text>
         <Text
           fontWeight="bold"
-          color={text2.substring(0, 1) === "-" ? "#df4036" : "green"}
+          color={target < 0 ? "#df4036" : "green"}
           fontSize={"small"}
         >
-          {text2}
+          {numberFormatter(target)}
         </Text>
       </CardBody>
     </Card>

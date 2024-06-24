@@ -1,11 +1,14 @@
 import { Card, CardBody, HStack, Heading, Text } from "@chakra-ui/react";
 import { Merch } from "../MerchPage";
+import numberFormatter from "../../../services/numberFormatter";
+import moneyFormatter from "../../../services/moneyFormatter";
 
 interface Props {
   item: Merch;
+  isLaptop: boolean;
 }
 
-const MerchCardSml = ({ item: { label, text1, text2 } }: Props) => {
+const MerchCardSml = ({ item: { label, total } }: Props) => {
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
       <CardBody padding={4} justifyContent={"space-between"}>
@@ -16,18 +19,20 @@ const MerchCardSml = ({ item: { label, text1, text2 } }: Props) => {
         </HStack>
         <>
           <HStack paddingTop={3}>
-            <Text fontSize={"xx-large"} fontWeight="bold" color="#000000">
-              {text1}
+            <Text fontSize={"x-large"} fontWeight="bold" color="#000000">
+              {label === "Total Inventory - Items"
+                ? numberFormatter(total)
+                : moneyFormatter(total)}
             </Text>
           </HStack>
-          <HStack paddingTop={2}>
+          {/* <HStack paddingTop={3}>
             <Text
               fontWeight="bold"
               color={text2 === "-45%" ? "#df4036" : "green"}
             >
               {text2}
             </Text>
-          </HStack>
+          </HStack> */}
         </>
       </CardBody>
     </Card>

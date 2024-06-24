@@ -4,9 +4,9 @@ import { Merch } from "./MerchPage";
 import MerchCardSkeleton from "./MerchCards/MerchCardSkeleton";
 
 interface Props {
-  columns: number;
+  columns: object;
   merchDisplayItems: Merch[];
-  index?: number;
+  isLaptop: boolean;
 }
 
 const MerchGridSkeletons = ({ columns, merchDisplayItems }: Props) => {
@@ -14,7 +14,7 @@ const MerchGridSkeletons = ({ columns, merchDisplayItems }: Props) => {
     <SimpleGrid columns={columns}>
       {merchDisplayItems.map((item: Merch) => (
         <Box paddingRight={5} paddingBottom={5} key={item.id}>
-          <MerchCardContainer size={item.size}>
+          <MerchCardContainer item={item}>
             <MerchCardSkeleton />
           </MerchCardContainer>
         </Box>

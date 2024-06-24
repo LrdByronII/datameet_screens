@@ -3,6 +3,7 @@ import { Merch } from "../MerchPage";
 
 interface Props {
   item: Merch;
+  isLaptop: boolean;
 }
 
 const MerchCardLg = ({ item: { label } }: Props) => {

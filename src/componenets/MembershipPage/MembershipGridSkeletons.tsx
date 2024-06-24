@@ -4,9 +4,9 @@ import MembershipCardContainer from "./MembershipCardContainer";
 import MembershipCardSkeleton from "./MembershipCards/MembershipCardSkeleton";
 
 interface Props {
-  columns: number;
+  columns: object;
   membershipDisplayItems: Membership[];
-  index?: number;
+  isLaptop: boolean;
 }
 
 const MembershipGridSkeletons = ({
@@ -16,7 +16,7 @@ const MembershipGridSkeletons = ({
   return (
     <SimpleGrid columns={columns}>
       {membershipDisplayItems.map((item: Membership) => (
-        <Box paddingRight={5} paddingBottom={5} key={item.id}>
+        <Box paddingRight={3} paddingBottom={3} key={item.id}>
           <MembershipCardContainer item={item}>
             <MembershipCardSkeleton />
           </MembershipCardContainer>

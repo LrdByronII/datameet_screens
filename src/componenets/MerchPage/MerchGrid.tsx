@@ -1,27 +1,35 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
+import { Merch } from "./MerchPage";
 import MerchCardXl from "./MerchCards/MerchCardXl";
 import MerchCardContainer from "./MerchCardContainer";
-import { Merch } from "./MerchPage";
 import MerchCardLg from "./MerchCards/MerchCardLg";
 import MerchCardMed from "./MerchCards/MerchCardMed";
 import MerchCardSml from "./MerchCards/MerchCardSml";
 
 interface Props {
-  columns: number;
+  columns: object;
   merchDisplayItems: Merch[];
-  index?: number;
+  isLaptop: boolean;
 }
 
-const MerchGrid = ({ columns, merchDisplayItems }: Props) => {
+const MerchGrid = ({ columns, merchDisplayItems, isLaptop }: Props) => {
   return (
     <SimpleGrid columns={columns}>
       {merchDisplayItems.map((item: Merch) => (
         <Box paddingRight={5} paddingBottom={5} key={item.id}>
-          <MerchCardContainer size={item.size}>
-            {item.size === "small" && <MerchCardSml item={item} />}
-            {item.size === "medium" && <MerchCardMed item={item} />}
-            {item.size === "large" && <MerchCardLg item={item} />}
-            {item.size === "xl" && <MerchCardXl item={item} />}
+          <MerchCardContainer item={item}>
+            {item.size === "small" && (
+              <MerchCardSml item={item} isLaptop={isLaptop} />
+            )}
+            {item.size === "medium" && (
+              <MerchCardMed item={item} isLaptop={isLaptop} />
+            )}
+            {item.size === "large" && (
+              <MerchCardLg item={item} isLaptop={isLaptop} />
+            )}
+            {item.size === "xl" && (
+              <MerchCardXl item={item} isLaptop={isLaptop} />
+            )}
           </MerchCardContainer>
         </Box>
       ))}

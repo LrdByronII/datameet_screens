@@ -1,16 +1,20 @@
 import { Card, CardBody, HStack, SkeletonText } from "@chakra-ui/react";
 
+// interface Props {
+//   isLaptop: boolean;
+// }
+
 const MembershipCardSkeleton = () => {
   return (
-    <Card height="100%" width="100%">
+    <Card borderRadius={10} height="100%" width="100%">
       <CardBody>
         <HStack>
           <SkeletonText />
         </HStack>
-        <HStack paddingTop={10}>
+        <HStack>
           <SkeletonText />
         </HStack>
-        <HStack paddingTop={1}>
+        <HStack>
           <SkeletonText />
         </HStack>
       </CardBody>

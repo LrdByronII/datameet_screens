@@ -9,13 +9,16 @@ import {
 } from "@chakra-ui/react";
 import { Membership } from "../MembershipPage";
 import squares from "../../../assets/squares.png";
+import moneyFormatter from "../../../services/moneyFormatter";
+import numberFormatter from "../../../services/numberFormatter";
 
 interface Props {
   item: Membership;
+  isLaptop: boolean;
 }
 
-const MembershipCardMed = ({ item: { label, text1, int1, int2 } }: Props) => {
-  const percent = 100 * (int1 / int2);
+const MembershipCardMed = ({ item: { label, total, target } }: Props) => {
+  const percent = 100 * (total / target);
 
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
@@ -28,7 +31,9 @@ const MembershipCardMed = ({ item: { label, text1, int1, int2 } }: Props) => {
         </HStack>
         <HStack paddingTop={2}>
           <Text fontWeight="bold" color="#000000" fontSize={"large"}>
-            {text1}
+            {label === "TOTAL REVENUE ext GST"
+              ? moneyFormatter(total)
+              : numberFormatter(total)}
           </Text>
         </HStack>
         <HStack paddingTop={1}>
@@ -50,7 +55,9 @@ const MembershipCardMed = ({ item: { label, text1, int1, int2 } }: Props) => {
             value={percent}
           />
           <Text fontSize={"x-small"} color={"grey"}>
-            {int2}
+            {label === "TOTAL REVENUE ext GST"
+              ? moneyFormatter(target)
+              : numberFormatter(target)}
           </Text>
         </HStack>
       </CardBody>

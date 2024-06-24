@@ -1,6 +1,6 @@
 import { Box, HStack } from "@chakra-ui/react";
 import { useState } from "react";
-import { networkData } from "../../data/dummyData.json";
+import dummyData from "../../data/dummyData";
 import NetworkGridSkeletons from "./NetworkGridSkeletons";
 import NetworkGrid from "./NetworkGrid";
 
@@ -16,9 +16,12 @@ export interface Network {
 
 const NetworkPage = () => {
   const [isLoading] = useState(false);
+  const networkData = dummyData.networkData;
 
   const groups: Network[][] = [[]];
+
   let count = 0;
+
   for (let i = 0; i < networkData.length; i++) {
     if (i !== 0 && networkData[i].size === networkData[i - 1].size) {
       groups[count].push(networkData[i]);

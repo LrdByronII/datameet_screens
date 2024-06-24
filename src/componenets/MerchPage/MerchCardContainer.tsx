@@ -1,31 +1,32 @@
 import { Box } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import { Merch } from "./MerchPage";
 
 interface Props {
   children: ReactNode;
-  size: string;
+  item: Merch;
 }
 
-const MerchCardContainer = ({ children, size }: Props) => {
+const MerchCardContainer = ({ children, item: { size } }: Props) => {
   return (
     <>
       {size === "small" && (
-        <Box width={372} height={131}>
+        <Box width={{ base: 271, xl: 372 }} height={{ xl: 131 }}>
           {children}
         </Box>
       )}
       {size === "medium" && (
-        <Box width={373} height={281}>
+        <Box width={{ base: 271, xl: 373 }} height={{ xl: 281 }}>
           {children}
         </Box>
       )}
       {size === "large" && (
-        <Box width={568} height={180}>
+        <Box width={{ base: 271, xl: 568 }} height={{ xl: 180 }}>
           {children}
         </Box>
       )}
       {size === "xl" && (
-        <Box width={1157} height={370}>
+        <Box width={{ base: 271, xl: 1157 }} height={{ base: 400, xl: 370 }}>
           {children}
         </Box>
       )}

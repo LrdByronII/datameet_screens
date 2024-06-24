@@ -8,14 +8,21 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
+import useCharts from "../../../hooks/useCharts";
+import moneyFormatter from "../../../services/moneyFormatter";
 import { Merch } from "../MerchPage";
 
 interface Props {
   item: Merch;
+  isLaptop: boolean;
 }
 
-const MerchCardMed = ({ item: { label, int1, int2, text1, text2 } }: Props) => {
-  const percent = 100 * (int1 / int2);
+const MerchCardMed = ({ item: { label } }: Props) => {
+  const { data: dm_chart } = useCharts("merchandise-monthly");
+
+  const total = dm_chart?.body.series2Total || 1;
+  const target = dm_chart?.body.series1Total || 69;
+  const percent = 100 * (total / target);
 
   return (
     <Card borderRadius={10} height={"100%"} width={"100%"}>
@@ -30,6 +37,7 @@ const MerchCardMed = ({ item: { label, int1, int2, text1, text2 } }: Props) => {
           color="green"
           size={170}
           trackColor={"grey"}
+          capIsRound={true}
         >
           <CircularProgressLabel
             color={"black"}
@@ -45,7 +53,7 @@ const MerchCardMed = ({ item: { label, int1, int2, text1, text2 } }: Props) => {
               Total:
             </Text>
             <Text fontWeight="bold" color="#000000" fontSize={"medium"}>
-              {text1}
+              {moneyFormatter(total)}
             </Text>
           </Box>
           <Box>
@@ -53,7 +61,7 @@ const MerchCardMed = ({ item: { label, int1, int2, text1, text2 } }: Props) => {
               Target:
             </Text>
             <Text fontWeight="bold" color="#000000" fontSize={"medium"}>
-              {text2}
+              {moneyFormatter(target)}
             </Text>
           </Box>
         </HStack>
